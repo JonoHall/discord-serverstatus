@@ -87,6 +87,7 @@ fs.readdir(configdir, (err, files) => {
                         if (is_online == "online") {
                             const players = server.players
                             const maxplayers = server.maxPlayers
+                            const map = server.map
                             const queue = server.details.rust_queued_players
                             let status = `${players}/${maxplayers}`
                             if (typeof queue !== "undefined" && queue != "0") {
