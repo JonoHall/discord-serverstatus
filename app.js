@@ -93,9 +93,6 @@ fs.readdir(configdir, (err, files) => {
                             if (typeof queue !== "undefined" && queue != "0") {
                                 status += ` (${queue} ${queueMessage})`
                             }
-                            if (map != "Procedural Map") {
-                                status += ` | ${map}`
-                            }
                             if (debug) console.log("Updated from battlemetrics, serverid: " + server.id)
                             return client.user.setActivity(status, { type: statusType })
                         } else {
