@@ -89,12 +89,12 @@ fs.readdir(configdir, (err, files) => {
                             const maxplayers = server.maxPlayers
                             const map = server.details.map
                             const queue = server.details.rust_queued_players
-                            let status = "${players}/${maxplayers}"
+                            let status = `${players}/${maxplayers}`
                             if (showMap) {
-                                status += " | ${map}"
+                                status += ` | ${map}`
                             }
                             if (typeof queue !== "undefined" && queue != "0") {
-                                status += " (${queue} ${queueMessage})"
+                                status += ` (${queue} ${queueMessage})`
                             }
                             if (debug) console.log("Updated from battlemetrics, serverid: " + server.id)
                             if (debug) console.log("Updated from battlemetrics, status: " + status)
