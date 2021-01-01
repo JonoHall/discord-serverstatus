@@ -94,6 +94,7 @@ fs.readdir(configdir, (err, files) => {
                                 status += ` (${queue} ${queueMessage})`
                             }
                             if (debug) console.log("Updated from battlemetrics, serverid: " + server.id)
+                            if (debug) console.log("Updated from battlemetrics, status: " + status)
                             return client.user.setActivity(status, { type: statusType })
                         } else {
                             return client.user.setActivity("Offline")
