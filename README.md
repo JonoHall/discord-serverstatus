@@ -1,3 +1,7 @@
+# Heroku modifications
+
+Modified version of the Rust Server Status bot to work on Heroku.
+
 # Discord bot that displayes online players
 
 [![Docker Automated build](https://img.shields.io/docker/automated/kenrisa/discord-rustserverstatus.svg)](https://hub.docker.com/r/kenrisa/discord-rustserverstatus/)
