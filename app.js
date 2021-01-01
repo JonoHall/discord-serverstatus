@@ -16,7 +16,7 @@ if (!fs.existsSync(configdir)){
 fs.readdir(configdir, (err, files) => {
     try {
         if (files.length < 1 )
-        var writeConfig = '{"debug":false,"token":"","apiSite":4,"apiUrl":"https://full uri here","serverIp":"","serverPort":"28015","enableRcon":"0","rconhost":"","rconport":"","rconpass":"","prefix":"!","roles":["Administrator","admins"],"queueMessage":"currently waiting in queue.","updateInterval":"3"}'
+        var writeConfig = '{"debug":false,"token":"","apiSite":4,"apiUrl":"https://full uri here","serverIp":"","serverPort":"28015","enableRcon":"0","rconhost":"","rconport":"","rconpass":"","prefix":"!","roles":["Administrator","admins"],"queueMessage":"currently waiting in queue.","updateInterval":"3","showMap":false}'
         var jsonData = JSON.parse(writeConfig);
         
         fs.writeFile("config/server1.json", JSON.stringify(jsonData, null, 2), 'utf8', function (err) {
@@ -89,9 +89,12 @@ fs.readdir(configdir, (err, files) => {
                             const maxplayers = server.maxPlayers
                             const map = server.details.map
                             const queue = server.details.rust_queued_players
-                            let status = `${players}/${maxplayers} | ${map}`
+                            let status = "${players}/${maxplayers}"
+                            if (showMap) {
+                                status += " | ${map}"
+                            }
                             if (typeof queue !== "undefined" && queue != "0") {
-                                status += ` (${queue} ${queueMessage})`
+                                status += " (${queue} ${queueMessage})"
                             }
                             if (debug) console.log("Updated from battlemetrics, serverid: " + server.id)
                             if (debug) console.log("Updated from battlemetrics, status: " + status)
