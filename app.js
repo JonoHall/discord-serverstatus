@@ -87,11 +87,14 @@ fs.readdir(configdir, (err, files) => {
                         if (is_online == "online") {
                             const players = server.players
                             const maxplayers = server.maxPlayers
-                            const map = server.map
+                            const map = server.details.map
                             const queue = server.details.rust_queued_players
-                            let status = `${players}/${maxplayers}`
+                            let status = `${players}/${maxplayers} | ${map}`
                             if (typeof queue !== "undefined" && queue != "0") {
                                 status += ` (${queue} ${queueMessage})`
+                            }
+                            if (map != "Procedural Map") {
+                                status += ` | ${map}`
                             }
                             if (debug) console.log("Updated from battlemetrics, serverid: " + server.id)
                             return client.user.setActivity(status, { type: statusType })
