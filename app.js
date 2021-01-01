@@ -146,6 +146,7 @@ fs.readdir(configdir, (err, files) => {
         const roles = process.env.roles || config.roles
         const queueMessage = process.env.queueMessage || config.queueMessage
         const statusType = process.env.statusType || config.statusType
+        const showMap = process.env.showMap || config.showMap
 
         client.on("ready", () => {
             console.log(`Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`)
