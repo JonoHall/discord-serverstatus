@@ -54,6 +54,7 @@ fs.readdir(configdir, (err, files) => {
                 })
             }
             if (apiSite == 3) {
+                if (debug) console.log("Updating from battlemetrics using serverid: " + server.id)
                 require("tls").DEFAULT_ECDH_CURVE = "auto"
                 request({ url: apiUrl, headers: { json: true, Referer: 'discord-rustserverstatus' }, timeout: 10000 }, function (err, res, body) {
                     if (!err && res.statusCode == 200) {
@@ -123,11 +124,10 @@ fs.readdir(configdir, (err, files) => {
         const queueMessage = process.env.queueMessage || config.queueMessage
         const statusType = process.env.statusType || config.statusType
         const showMap = process.env.showMap || config.showMap
-
-        if (debug) console.log("Executing update...")
         
         client.on("ready", () => {
             console.log(`Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`)
+            console.log(`Updating status using apiSite:` + apiSite)
             updateActivity()
             setInterval(function () {
                 updateActivity()
