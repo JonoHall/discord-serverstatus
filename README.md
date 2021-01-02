@@ -1,6 +1,9 @@
 # Heroku modifications
 
 Modified version of the Rust Server Status bot to work on Heroku.
+  1. Add your config variables to Settings -> Config Vars (click the "Reveal Config Vars" button), see configuration section further down this documentation for required variables.
+  2. Go to "Resources" and turn the "Web" dyno off, and enable the "Worker" dyno.
+  3. Check your bot is running by checking the log file screen "More" -> "View Logs".
 
 # Discord bot that displayes online players
 
