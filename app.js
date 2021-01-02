@@ -103,7 +103,6 @@ fs.readdir(configdir, (err, files) => {
             }
         }
         // End Functions
-        if (debug) console.log("Executing update...")
         
         try {
             var config = require("./config/server"+i+".json");
@@ -125,6 +124,8 @@ fs.readdir(configdir, (err, files) => {
         const statusType = process.env.statusType || config.statusType
         const showMap = process.env.showMap || config.showMap
 
+        if (debug) console.log("Executing update...")
+        
         client.on("ready", () => {
             console.log(`Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`)
             updateActivity()
