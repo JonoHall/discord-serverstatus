@@ -1,10 +1,3 @@
-# Heroku modifications
-
-Modified version of the Rust Server Status bot to work on Heroku.
-  1. Add your config variables to Settings -> Config Vars (click the "Reveal Config Vars" button), see configuration section further down this documentation for required variables.
-  2. Go to "Resources" and turn the "Web" dyno off, and enable the "Worker" dyno.
-  3. Check your bot is running by checking the log file screen "More" -> "View Logs".
-
 # Discord bot that displayes online players
 
 [![Docker Automated build](https://img.shields.io/docker/automated/kenrisa/discord-rustserverstatus.svg)](https://hub.docker.com/r/kenrisa/discord-rustserverstatus/)
@@ -166,3 +159,9 @@ docker-compose build
 docker-compose up -d
 ```
 
+# Heroku
+
+To run this app on Heroku, create a new app using this repository.
+  1. Add your config variables to Settings -> Config Vars (click the "Reveal Config Vars" button), see configuration section further down this documentation for required variables.
+  2. Go to "Resources" and turn the "Web" dyno off, and enable the "Worker" dyno.
+  3. Check your bot is running by checking the log file screen "More" -> "View Logs".
