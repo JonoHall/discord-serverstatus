@@ -78,7 +78,10 @@ fs.readdir(configdir, (err, files) => {
                             return client.user.setActivity(status, { type: statusType })
                         } else {
                             return client.user.setActivity("Offline")
+                            if (debug) console.log("Server is Offline...")
                         }
+                    } else {
+                        if (debug) console.log(res.statusCode + ": " + res.reason)
                     }
                 })
             }
