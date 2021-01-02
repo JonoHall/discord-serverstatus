@@ -62,6 +62,7 @@ fs.readdir(configdir, (err, files) => {
                         const jsonData = JSON.parse(body)
                         const server = jsonData.data.attributes
                         const is_online = server.status
+                        if (debug) console.log("is_online: " + server.status)
                         if (is_online == "online") {
                             if (debug) console.log("Server is online, pulling information...")
                             const players = server.players
@@ -79,8 +80,8 @@ fs.readdir(configdir, (err, files) => {
                             if (debug) console.log("Updated from battlemetrics, status: " + status)
                             return client.user.setActivity(status, { type: statusType })
                         } else {
-                            return client.user.setActivity("Offline")
                             if (debug) console.log("Server is Offline...")
+                            return client.user.setActivity("Offline")
                         }
                     } else {
                         if (debug) console.log(res.statusCode + ": " + res.reason)
