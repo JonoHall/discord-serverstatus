@@ -58,10 +58,12 @@ fs.readdir(configdir, (err, files) => {
                 require("tls").DEFAULT_ECDH_CURVE = "auto"
                 request({ url: apiUrl, headers: { json: true, Referer: 'discord-rustserverstatus' }, timeout: 10000 }, function (err, res, body) {
                     if (!err && res.statusCode == 200) {
+                        if (debug) console.log("Extracting battlemetrics API results...")
                         const jsonData = JSON.parse(body)
                         const server = jsonData.data.attributes
                         const is_online = server.status
                         if (is_online == "online") {
+                            if (debug) console.log("Server is online, pulling information...")
                             const players = server.players
                             const maxplayers = server.maxPlayers
                             const map = server.details.map
