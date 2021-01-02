@@ -54,7 +54,7 @@ fs.readdir(configdir, (err, files) => {
                 })
             }
             if (apiSite == 3) {
-                if (debug) console.log("Updating from battlemetrics using serverid: " + server.id)
+                if (debug) console.log("Updating from battlemetrics...")
                 require("tls").DEFAULT_ECDH_CURVE = "auto"
                 request({ url: apiUrl, headers: { json: true, Referer: 'discord-rustserverstatus' }, timeout: 10000 }, function (err, res, body) {
                     if (!err && res.statusCode == 200) {
