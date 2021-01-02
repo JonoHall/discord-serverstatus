@@ -103,7 +103,8 @@ fs.readdir(configdir, (err, files) => {
             }
         }
         // End Functions
-
+        if (debug) console.log("Executing update...")
+        
         try {
             var config = require("./config/server"+i+".json");
         } catch (error) {
