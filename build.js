@@ -1,3 +1,4 @@
+const fs = require('fs');
 const configdir = './config';
 
 // Create dir if not exist
